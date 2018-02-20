@@ -49,6 +49,8 @@ public class FlaviusJosephe {
 		});
 		
 		System.out.println(arr);
+		
+		System.out.println(5/ 2);
 
 	}
 

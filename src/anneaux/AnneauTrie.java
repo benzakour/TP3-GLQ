@@ -13,7 +13,7 @@ import java.util.Comparator;
  * @param <T>
  *
  */
-public class AnneauTrie<T> {
+public class AnneauTrie<E> extends AbstractAnneauListeChainee<E>{
 
 	/**
 	 * <h1>AnneauTrie.java</h1><br>
@@ -22,7 +22,7 @@ public class AnneauTrie<T> {
 	 * </p>
 	 */
 	public AnneauTrie() {
-		
+		super(null);
 	}
 
 	/**
@@ -32,7 +32,16 @@ public class AnneauTrie<T> {
 	 * ou Comparable/Comparator <E> ?
 	 * </p>
 	 */
-	public AnneauTrie(Comparator<T> comparator) {
-		assert comparator != null;
+	public AnneauTrie(Comparator<E> comparator) {
+		super(null);
+	}
+
+	/* (non-Javadoc)
+	 * @see anneaux.Anneau#insere(java.lang.Object)
+	 */
+	@Override
+	public void insere(E element) {
+		// TODO Auto-generated method stub
+		
 	}
 }
