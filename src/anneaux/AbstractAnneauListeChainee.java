@@ -6,19 +6,11 @@ import java.util.List;
 
 public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 
-	private LinkedList<E> anneau;
+	protected LinkedList<E> anneau;
 
-	protected AbstractAnneauListeChainee(LinkedList<E> anneau) {
-		// assert anneau != null;
-		this.anneau = anneau;
+	protected AbstractAnneauListeChainee() {
+		this.anneau = new LinkedList<E>();
 	}
-
-	// @Override
-	// public void insere(E element) {
-	// if (element != null) {
-	// anneau.add(element);
-	// }
-	// }
 
 	@Override
 	public boolean supprime(E element) {
@@ -27,20 +19,33 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 
 	@Override
 	public E suivant(E element) {
-		try {
-			return anneau.get(anneau.indexOf(element) + 1);
-		} catch (NullPointerException | IndexOutOfBoundsException e) {
-			e.printStackTrace();
-			return null;
-		}
+		return this.suivant(element, 1);
 	}
 
 	@Override
 	public E suivant(E element, int pas) {
+		int index = 0;
+
 		try {
-			return anneau.get(anneau.indexOf(element) + pas);
-		} catch (NullPointerException | IndexOutOfBoundsException e) {
-			e.printStackTrace();
+			// on récupère l'index de l'élement
+			// si l'élément n'existe pas index sera égal à -1
+			index = anneau.indexOf(element);
+
+			// si l'élément n'existe pas (donc si index est égal à -1)
+			// on retourne null
+			if (index < 0) {
+				return null;
+			}
+
+			// on tente de prendre l'élément suivant
+			return anneau.get(index + pas);
+		} catch (IndexOutOfBoundsException e) {
+			// si il n'existe pas d'élément suivant c'est qu'on est déjà au
+			// dernier élément. Dans ce cas on applique la formule :
+			// (index + pas) % taille = résultat
+			return anneau.get(((index + pas) % anneau.size()));
+		} catch (NullPointerException e) {
+			// si l'élément passé en argument est null on retourne null
 			return null;
 		}
 	}
@@ -50,7 +55,6 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 		try {
 			return anneau.contains(element);
 		} catch (NullPointerException e) {
-			e.printStackTrace();
 			return false;
 		}
 	}
@@ -86,17 +90,17 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 
 	@Override
 	public int hashCode() {
-		return 0;
+		return anneau.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object o) {
+		// TODO
 		return false;
 	}
 
 	@Override
 	public String toString() {
-		return "AnneauListeChainee []";
+		return "AnneauListeChainee " + anneau.toString();
 	}
-
 }
