@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 
-	private LinkedList<E> anneau;
+	protected LinkedList<E> anneau;
 
 	public LinkedList<E> getAnneau() {
 		return anneau;
@@ -18,11 +18,8 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 		this.anneau = anneau;
 	}
 
-	@Override
-	public void insere(E element) {
-		if (element != null) {
-			anneau.add(element);
-	  }
+	public AbstractAnneauListeChainee() {
+		this.anneau = new LinkedList<E>();
 	}
 
 	@Override
@@ -127,6 +124,7 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 		return false;
 	}
 
+	/*
 	@Override
 	public String toString() {
 		String s = "[";
@@ -136,6 +134,6 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
 		s = s.substring(0, s.length()-1);
 		s+="]";
 		return s;
-	}
+	}*/
 
 }

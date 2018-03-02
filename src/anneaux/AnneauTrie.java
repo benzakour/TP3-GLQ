@@ -22,7 +22,7 @@ public class AnneauTrie<E> extends AbstractAnneauListeChainee<E>{
 	 * </p>
 	 */
 	public AnneauTrie() {
-		super(null);
+		super();
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class AnneauTrie<E> extends AbstractAnneauListeChainee<E>{
 	 * </p>
 	 */
 	public AnneauTrie(Comparator<E> comparator) {
-		super(null);
+		super();
 	}
 
 	/* (non-Javadoc)
@@ -41,7 +41,6 @@ public class AnneauTrie<E> extends AbstractAnneauListeChainee<E>{
 	 */
 	@Override
 	public void insere(E element) {
-		// TODO Auto-generated method stub
-		
+		anneau.add(element);		
 	}
 }

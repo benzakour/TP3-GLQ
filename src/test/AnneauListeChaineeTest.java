@@ -1,13 +1,17 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.LinkedList;
+import java.util.*;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import anneaux.Anneau;
 import anneaux.AnneauListeChainee;
 
 
@@ -133,8 +137,11 @@ class AnneauListeChaineeTest {
 
 	@Test
 	void testCoupeEnDeux() {
-		
-		//System.out.println(anneau1.coupeEnDeux());
+		List<Anneau<Integer>> list = anneau1.coupeEnDeux(); 
+		assertTrue(list.get(0).contient(1));
+		assertTrue(list.get(1).contient(6));
+		assertTrue(list.get(0).contient(3));
+		assertTrue(list.get(1).contient(2));
 	}
 
 	@Test

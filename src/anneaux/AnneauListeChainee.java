@@ -6,7 +6,13 @@ public class AnneauListeChainee<E> extends AbstractAnneauListeChainee<E> {
 
 	public AnneauListeChainee(LinkedList<E> anneau) {
 		super(anneau);
-		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void insere(E element) {
+		if (element != null) {
+			anneau.add(element);
+	  }
 	}
 
 }
