@@ -6,6 +6,7 @@ package anneaux;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
 
 /**
  * Utilisez la classe AnneauListeChainee pour écrire un programme qui simule le
@@ -20,6 +21,68 @@ import java.util.Comparator;
  */
 public class FlaviusJosephe {
 
+	protected Integer size, pas;
+
+	public FlaviusJosephe(Integer size, Integer pas) {
+		this.size = size;
+		this.pas = pas;
+	}
+
+	public AnneauListeChainee<Integer> createList() {
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		for (int i = 0; i < size; i++) {
+			list.add(i);
+		}
+		AnneauListeChainee<Integer> anneau = new AnneauListeChainee<>(list);
+		return anneau;
+	}
+	
+	public void flush() {
+		// Liste à analyser
+		AnneauListeChainee<Integer> listFlush = createList();
+		
+		// Liste résultat
+		ArrayList<Integer> flushList = new ArrayList<Integer>();
+		
+		// Nombre de valeurs trouvées.
+		Integer cpt = 0;
+		
+		// Position de départ à chaque début de boucle
+		Integer index = 0;
+		while(cpt < this.size) {
+			// Position à analyser
+			Integer idxToFlush = index;
+			
+			// Nombre de suivants non présents dans la liste résultat.
+			Integer numOfSearches = 0;
+			
+			// Prochaine valeur à vérifier
+			Integer valueFound;
+			while(numOfSearches < this.pas) {
+				// Allocation de la valeur à vérifier
+				valueFound = listFlush.suivant(idxToFlush);
+				
+				// Vérification de la présence de la valeur
+				// Si elle est déjà dans la liste, on prend le prochain suivant, et on n'augmente pas le nombre de
+				// vérifications effectuées. Si elle n'est pas dedans, alors on continue.
+				if(!flushList.contains(valueFound))
+					numOfSearches++;
+				
+				// Mise à jour de la position.
+				idxToFlush = valueFound;
+			}
+			// Ajout de la bonne position dans la liste résultat
+			flushList.add(idxToFlush);
+			
+			// On stocke la valeur de départ pour le prochain tour de boucle.
+			index = idxToFlush;
+			
+			// Nombre de valeurs trouvées + 1
+			cpt++;
+		}
+		System.out.println(flushList);
+	}
+
 	/**
 	 * <h1>main</h1>
 	 * <p>
@@ -28,31 +91,35 @@ public class FlaviusJosephe {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		ArrayList<String> arr = new ArrayList<>();
-		arr.add("element1");
-		arr.add("element3");
-		arr.add("element2");
-		arr.add("element5");
-		arr.add("element6");
-		arr.add("element4");
-		
-		System.out.println(arr);
-		
-		Collections.sort(arr, new Comparator<String>() {
 
-			@Override
-			public int compare(String o1, String o2) {
-				
-				return o1.toString().compareTo(o2.toString());
-			}
-		});
-		
-		System.out.println(arr);
-		
-		System.out.println(5/ 2);
-		// souha 2
+//		ArrayList<String> arr = new ArrayList<>();
+//		arr.add("element1");
+//		arr.add("element3");
+//		arr.add("element2");
+//		arr.add("element5");
+//		arr.add("element6");
+//		arr.add("element4");
+//
+//		System.out.println(arr);
+//
+//		Collections.sort(arr, new Comparator<String>() {
+//
+//			@Override
+//			public int compare(String o1, String o2) {
+//
+//				return o1.toString().compareTo(o2.toString());
+//			}
+//		});
+//
+//		System.out.println(arr);
+//
+//		System.out.println(5 / 2);
+//		// souha 2
 
+		FlaviusJosephe fJ1 = new FlaviusJosephe(8, 3);
+		fJ1.flush();
+		FlaviusJosephe fJ2 = new FlaviusJosephe(10, 2);
+		fJ2.flush();
 	}
 
 }
