@@ -7,11 +7,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.Comparator;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import anneaux.Anneau;
 import anneaux.AnneauTrie;
 
 /**
@@ -164,7 +166,13 @@ public class TestAnneauTrie {
 	 */
 	@Test
 	public void testCoupeEnDeux() {
-
+		List<Anneau<String>> liste = anneau2.coupeEnDeux();
+		
+		assertNotNull(liste);
+		assertEquals(true, liste.get(0).contient("element1"));
+		assertEquals(true, liste.get(1).contient("element2"));
+		assertEquals(true, liste.get(0).contient("element3"));
+		assertEquals(true, liste.get(1).contient("element4"));
 	}
 
 	/**
@@ -173,7 +181,7 @@ public class TestAnneauTrie {
 	 */
 	@Test
 	public void testEqualsObject() {
-
+		
 	}
 
 	/**
@@ -182,7 +190,7 @@ public class TestAnneauTrie {
 	 */
 	@Test
 	public void testToString() {
-
+		assertEquals("AnneauListeChainee [element1, element2, element3, element4]", anneau2.toString());
 	}
 
 }
