@@ -13,16 +13,19 @@ import java.util.Comparator;
  * @param <T>
  *
  */
-public class AnneauTrie<E> extends AbstractAnneauListeChainee<E>{
+public class AnneauTrie<E> extends AbstractAnneauListeChainee<E> {
+
+	private Comparator<E> comparator;
 
 	/**
-	 * <h1>AnneauTrie.java</h1><br>
+	 * <h1>AnneauTrie.java</h1>
 	 * <p>
 	 * Constructeur sans parametres.
 	 * </p>
 	 */
 	public AnneauTrie() {
 		super();
+		this.comparator = null;
 	}
 
 	/**
@@ -34,9 +37,12 @@ public class AnneauTrie<E> extends AbstractAnneauListeChainee<E>{
 	 */
 	public AnneauTrie(Comparator<E> comparator) {
 		super();
+		this.comparator = comparator;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see anneaux.Anneau#insere(java.lang.Object)
 	 */
 	@Override
