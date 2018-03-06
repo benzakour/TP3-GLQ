@@ -1,6 +1,3 @@
-/**
- * 
- */
 package test;
 
 import static org.junit.Assert.assertEquals;
@@ -8,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -18,20 +14,17 @@ import anneaux.Anneau;
 import anneaux.AnneauTrie;
 
 /**
- * @author explorer
- *
+ * <h1>AnneauTrieTest</h1>
+ * <p>
+ * Classe de test de AnneauTrie.
+ * </p>
+ * 
+ * @author Audrey Mommeja et NoÃ©mie Spina.
  */
 public class AnneauTrieTest {
 
 	public static AnneauTrie<String> anneau1, anneau2, anneau3;
 
-	/**
-	 * <h1>setUpBeforeClass</h1>
-	 * <p>
-	 * </p>
-	 * 
-	 * @throws java.lang.Exception
-	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		anneau1 = new AnneauTrie<>();
@@ -39,13 +32,6 @@ public class AnneauTrieTest {
 		anneau3 = new AnneauTrie<>();
 	}
 
-	/**
-	 * <h1>setUp</h1>
-	 * <p>
-	 * </p>
-	 * 
-	 * @throws java.lang.Exception
-	 */
 	@Before
 	public void setUp() throws Exception {
 		anneau1 = new AnneauTrie<>();
@@ -57,7 +43,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de {@link anneaux.AnneauTrie#AnneauTrie()}.
+	 * Teste la methode de {@link anneaux.AnneauTrie#AnneauTrie()}.
 	 */
 	@Test
 	public void testAnneauTrie() {
@@ -66,7 +52,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de
+	 * Teste la methode de
 	 * {@link anneaux.AnneauTrie#AnneauTrie(java.util.Comparator)}.
 	 */
 	@Test
@@ -82,7 +68,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de {@link anneaux.AnneauTrie#insere(java.lang.Object)}.
+	 * Teste la methode de {@link anneaux.AnneauTrie#insere(java.lang.Object)}.
 	 */
 	@Test
 	public void testInsere() {
@@ -93,17 +79,17 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#hashCode()}
+	 * Teste la methode de {@link anneaux.AbstractAnneauListeChainee#hashCode()}
 	 * .
 	 */
 	@Test
 	public void testHashCode() {
 		AnneauTrie<String> anneau3 = new AnneauTrie<>();
-		assertEquals(32, anneau3.hashCode());
+		assertEquals(0, anneau3.hashCode());
 	}
 
 	/**
-	 * Teste la méthode de
+	 * Teste la methode de
 	 * {@link anneaux.AbstractAnneauListeChainee#supprime(java.lang.Object)}.
 	 */
 	@Test
@@ -115,7 +101,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de
+	 * Teste la methode de
 	 * {@link anneaux.AbstractAnneauListeChainee#suivant(java.lang.Object)}.
 	 */
 	@Test
@@ -125,7 +111,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de
+	 * Teste la methode de
 	 * {@link anneaux.AbstractAnneauListeChainee#suivant(java.lang.Object, int)}
 	 * .
 	 */
@@ -136,7 +122,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de
+	 * Teste la methode de
 	 * {@link anneaux.AbstractAnneauListeChainee#contient(java.lang.Object)}.
 	 */
 	@Test
@@ -146,7 +132,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#estVide()}.
+	 * Teste la methode de {@link anneaux.AbstractAnneauListeChainee#estVide()}.
 	 */
 	@Test
 	public void testEstVide() {
@@ -155,7 +141,7 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#taille()}.
+	 * Teste la methode de {@link anneaux.AbstractAnneauListeChainee#taille()}.
 	 */
 	@Test
 	public void testTaille() {
@@ -163,13 +149,13 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de
+	 * Teste la methode de
 	 * {@link anneaux.AbstractAnneauListeChainee#coupeEnDeux()}.
 	 */
 	@Test
 	public void testCoupeEnDeux() {
 		List<Anneau<String>> liste = anneau2.coupeEnDeux();
-		
+
 		assertNotNull(liste);
 		assertEquals(true, liste.get(0).contient("element1"));
 		assertEquals(true, liste.get(1).contient("element2"));
@@ -178,25 +164,23 @@ public class AnneauTrieTest {
 	}
 
 	/**
-	 * Teste la méthode de
+	 * Teste la methode de
 	 * {@link anneaux.AbstractAnneauListeChainee#equals(java.lang.Object)}.
 	 */
 	@Test
 	public void testEqualsObject() {
 		anneau1.insere("element1");
 		anneau3.insere("element1");
-		
+
 		assertEquals(true, anneau1.equals(anneau3));
 		assertEquals(false, anneau1.equals(anneau2));
 	}
 
 	/**
-	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#toString()}
-	 * .
+	 * Teste la methode de {@link anneaux.AbstractAnneauListeChainee#toString()}
 	 */
 	@Test
 	public void testToString() {
 		assertEquals("[element1,element2,element3,element4]", anneau2.toString());
 	}
-
 }

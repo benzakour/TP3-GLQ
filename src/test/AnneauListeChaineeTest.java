@@ -14,7 +14,17 @@ import org.junit.Test;
 import anneaux.Anneau;
 import anneaux.AnneauListeChainee;
 
+/**
+ * <h1>AnneauListeChaineeTest</h1>
+ * <p>
+ * Classe de test de AnneauListeChainee.
+ * </p>
+ * 
+ * @author Souha Benzakour et Noemie Spina
+ *
+ */
 public class AnneauListeChaineeTest {
+
 	LinkedList<Integer> a1 = new LinkedList<Integer>();
 	LinkedList<Integer> a2 = new LinkedList<Integer>();
 	LinkedList<Integer> a3 = new LinkedList<Integer>();
@@ -59,6 +69,9 @@ public class AnneauListeChaineeTest {
 
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#insere(Object)}.
+	 */
 	@Test
 	public void testInsere() {
 		// anneau1
@@ -72,6 +85,9 @@ public class AnneauListeChaineeTest {
 		assertEquals(new Integer(1), anneau3.getAnneau().getLast());
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#supprime(Object)}.
+	 */
 	@Test
 	public void testSupprime() {
 		// anneau1
@@ -89,6 +105,9 @@ public class AnneauListeChaineeTest {
 		assertEquals(2, k - 2);
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#suivant(Object)}.
+	 */
 	@Test
 	public void testSuivantE() {
 		// anneau1
@@ -99,6 +118,10 @@ public class AnneauListeChaineeTest {
 		assertEquals(3, j);
 	}
 
+	/**
+	 * Teste la methode de
+	 * {@link anneaux.AnneauListeChainee#suivant(Object, int)}.
+	 */
 	@Test
 	public void testSuivantEInt() {
 		// anneau1
@@ -109,6 +132,9 @@ public class AnneauListeChaineeTest {
 		assertEquals(3, j);
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#contient(Object)}.
+	 */
 	@Test
 	public void testContient() {
 		// anneau2
@@ -116,12 +142,18 @@ public class AnneauListeChaineeTest {
 		assertFalse(anneau2.contient(50));
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#estVide()}.
+	 */
 	@Test
 	public void testEstVide() {
 		assertFalse(anneau1.estVide());
 		assertTrue(anneau5.estVide());
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#taille()}.
+	 */
 	@Test
 	public void testTaille() {
 		// pour anneau1
@@ -134,6 +166,9 @@ public class AnneauListeChaineeTest {
 		assertEquals(6, j);
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#coupeEnDeux())}.
+	 */
 	@Test
 	public void testCoupeEnDeux() {
 		List<Anneau<Integer>> list = anneau1.coupeEnDeux();
@@ -143,6 +178,9 @@ public class AnneauListeChaineeTest {
 		assertTrue(list.get(1).contient(2));
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#equals(Object)}.
+	 */
 	@Test
 	public void testEqualsObject() {
 		assertFalse(anneau1.equals("ASD"));
@@ -154,8 +192,11 @@ public class AnneauListeChaineeTest {
 		assertFalse(anneau1.equals(anneau4));
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#hashCode()}.
+	 */
 	@Test
 	public void testHashCode() {
-		assertEquals(959204, anneau1.hashCode());
+		assertEquals(136, anneau1.hashCode());
 	}
 }

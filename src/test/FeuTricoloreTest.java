@@ -7,6 +7,15 @@ import org.junit.Test;
 import anneaux.Couleur;
 import anneaux.FeuTricolore;
 
+/**
+ * <h1>FeuTricoloreTest</h1>
+ * <p>
+ * Classe de test de FeuTricolore.
+ * </p>
+ * 
+ * @author Souha Benzakour et Anthony Gumb.
+ *
+ */
 public class FeuTricoloreTest {
 
 	private FeuTricolore fT;
@@ -20,6 +29,9 @@ public class FeuTricoloreTest {
 		fT = new FeuTricolore(Couleur.VERT);
 	}
 
+	/**
+	 * Teste la methode de {@link anneaux.FeuTricolore#change()}.
+	 */
 	@Test
 	public void testChange() {
 		assert fT.change() == Couleur.ORANGE;

@@ -10,7 +10,7 @@ import java.util.Comparator;
  * l'ordre naturel ou dans l'ordre donné par un comparateur.
  * </p>
  *
- * @author Anthony Gumb et Audrey Mommeja
+ * @author Anthony Gumb et Audrey Mommeja.
  *
  * @param <E>
  */
@@ -52,6 +52,8 @@ public class AnneauTrie<E> extends AbstractAnneauListeChainee<E> {
      @Override
      public void insere(final E element) {
           anneau.add(element);
-          Collections.sort(anneau, comparator);
+          if (comparator != null) {
+			Collections.sort(anneau, comparator);
+		}
      }
 }

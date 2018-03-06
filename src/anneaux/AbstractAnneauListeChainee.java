@@ -92,9 +92,6 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
                 return null;
             }
 
-            // on tente de prendre l'élément suivant
-            return anneau.get(index + pas);
-        } catch (IndexOutOfBoundsException e) {
             // si il n'existe pas d'élément
             // suivant c'est qu'on est déjà au
             // dernier élément. Dans ce cas on
@@ -173,10 +170,10 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
      */
     @Override
     public int hashCode() {
-    	int tmp = 0;
-    	for (E e : anneau) {
-			tmp += Objects.hash(e);
-		}
+        int tmp = 0;
+        for (E e : anneau) {
+            tmp += Objects.hash(e);
+        }
         return tmp;
     }
 
@@ -185,27 +182,27 @@ public abstract class AbstractAnneauListeChainee<E> implements Anneau<E> {
      *
      * @see java.lang.Object#equals(java.lang.Object)
      */
-	public boolean equals(final AbstractAnneauListeChainee<E> o) {
-		if (o == null || !(o instanceof AbstractAnneauListeChainee)
-				|| (o.getAnneau().size()
-						!= this.getAnneau().size())
-				|| (!o.contient(this.getAnneau().get(0)))) {
-			return false;
-		}
-		int positionFirstElement = o.getAnneau().indexOf(
-				this.getAnneau().get(0));
-		boolean res = true;
+    public boolean equals(final AbstractAnneauListeChainee<E> o) {
+        if (o == null || !(o instanceof AbstractAnneauListeChainee)
+                || (o.getAnneau().size()
+                        != this.getAnneau().size())
+                || (!o.contient(this.getAnneau().get(0)))) {
+            return false;
+        }
+        int positionFirstElement = o.getAnneau().indexOf(
+                this.getAnneau().get(0));
+        boolean res = true;
 
-		for (int i = 1; i < this.getAnneau().size(); i++) {
-			E toBeEquals = this.getAnneau().get(i);
-			E toMatch = o.suivant(o.getAnneau().get(
-					positionFirstElement), i);
-			if (!toMatch.equals(toBeEquals)) {
-				res = false;
-			}
-		}
-		return res;
-	}
+        for (int i = 1; i < this.getAnneau().size(); i++) {
+            E toBeEquals = this.getAnneau().get(i);
+            E toMatch = o.suivant(o.getAnneau().get(
+                    positionFirstElement), i);
+            if (!toMatch.equals(toBeEquals)) {
+                res = false;
+            }
+        }
+        return res;
+    }
 
     /*
      * (non-Javadoc)
