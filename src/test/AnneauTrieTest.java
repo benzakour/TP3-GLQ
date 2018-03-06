@@ -8,6 +8,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -20,9 +21,9 @@ import anneaux.AnneauTrie;
  * @author explorer
  *
  */
-public class TestAnneauTrie {
+public class AnneauTrieTest {
 
-	public static AnneauTrie<String> anneau1, anneau2;
+	public static AnneauTrie<String> anneau1, anneau2, anneau3;
 
 	/**
 	 * <h1>setUpBeforeClass</h1>
@@ -35,6 +36,7 @@ public class TestAnneauTrie {
 	public static void setUpBeforeClass() throws Exception {
 		anneau1 = new AnneauTrie<>();
 		anneau2 = new AnneauTrie<>();
+		anneau3 = new AnneauTrie<>();
 	}
 
 	/**
@@ -55,7 +57,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de {@link anneaux.AnneauTrie#AnneauTrie()}.
+	 * Teste la méthode de {@link anneaux.AnneauTrie#AnneauTrie()}.
 	 */
 	@Test
 	public void testAnneauTrie() {
@@ -64,7 +66,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de
+	 * Teste la méthode de
 	 * {@link anneaux.AnneauTrie#AnneauTrie(java.util.Comparator)}.
 	 */
 	@Test
@@ -80,7 +82,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de {@link anneaux.AnneauTrie#insere(java.lang.Object)}.
+	 * Teste la méthode de {@link anneaux.AnneauTrie#insere(java.lang.Object)}.
 	 */
 	@Test
 	public void testInsere() {
@@ -91,17 +93,17 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de {@link anneaux.AbstractAnneauListeChainee#hashCode()}
+	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#hashCode()}
 	 * .
 	 */
 	@Test
 	public void testHashCode() {
 		AnneauTrie<String> anneau3 = new AnneauTrie<>();
-		assertEquals(1, anneau3.hashCode());
+		assertEquals(32, anneau3.hashCode());
 	}
 
 	/**
-	 * Teste la mÃ©thode de
+	 * Teste la méthode de
 	 * {@link anneaux.AbstractAnneauListeChainee#supprime(java.lang.Object)}.
 	 */
 	@Test
@@ -113,7 +115,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de
+	 * Teste la méthode de
 	 * {@link anneaux.AbstractAnneauListeChainee#suivant(java.lang.Object)}.
 	 */
 	@Test
@@ -123,7 +125,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de
+	 * Teste la méthode de
 	 * {@link anneaux.AbstractAnneauListeChainee#suivant(java.lang.Object, int)}
 	 * .
 	 */
@@ -134,7 +136,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de
+	 * Teste la méthode de
 	 * {@link anneaux.AbstractAnneauListeChainee#contient(java.lang.Object)}.
 	 */
 	@Test
@@ -144,7 +146,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de {@link anneaux.AbstractAnneauListeChainee#estVide()}.
+	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#estVide()}.
 	 */
 	@Test
 	public void testEstVide() {
@@ -153,7 +155,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de {@link anneaux.AbstractAnneauListeChainee#taille()}.
+	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#taille()}.
 	 */
 	@Test
 	public void testTaille() {
@@ -161,7 +163,7 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de
+	 * Teste la méthode de
 	 * {@link anneaux.AbstractAnneauListeChainee#coupeEnDeux()}.
 	 */
 	@Test
@@ -176,21 +178,25 @@ public class TestAnneauTrie {
 	}
 
 	/**
-	 * Teste la mÃ©thode de
+	 * Teste la méthode de
 	 * {@link anneaux.AbstractAnneauListeChainee#equals(java.lang.Object)}.
 	 */
 	@Test
 	public void testEqualsObject() {
+		anneau1.insere("element1");
+		anneau3.insere("element1");
 		
+		assertEquals(true, anneau1.equals(anneau3));
+		assertEquals(false, anneau1.equals(anneau2));
 	}
 
 	/**
-	 * Teste la mÃ©thode de {@link anneaux.AbstractAnneauListeChainee#toString()}
+	 * Teste la méthode de {@link anneaux.AbstractAnneauListeChainee#toString()}
 	 * .
 	 */
 	@Test
 	public void testToString() {
-		assertEquals("AnneauListeChainee [element1, element2, element3, element4]", anneau2.toString());
+		assertEquals("[element1,element2,element3,element4]", anneau2.toString());
 	}
 
 }

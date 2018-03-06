@@ -1,11 +1,6 @@
-/**
- * 
- */
 package anneaux;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -18,16 +13,28 @@ import java.util.LinkedList;
  * sont retirés dans l'ordre 3 6 1 5 2 0 4 7 • avec n = 10 et p = 2, ils sont
  * retirés dans l'ordre 2 4 6 8 0 3 7 1 9 5
  *
+ * @author benzakour & anthony
+ * 
  */
 public class FlaviusJosephe {
 
 	protected Integer size, pas;
-
+	
+	/**
+	 * <h1>FlaviusJosephe</h1>
+	 * <p>Constructeur pour créer object FlaviusJosephe</p>
+	 * @param size
+	 * @param pas
+	 */
 	public FlaviusJosephe(Integer size, Integer pas) {
 		this.size = size;
 		this.pas = pas;
 	}
-
+	/**
+	 * <h1>createList</h1>
+	 * <p>Méthode pour création d'un anneau</p>
+	 * @return anneau 
+	 */
 	public AnneauListeChainee<Integer> createList() {
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		for (int i = 0; i < size; i++) {
@@ -36,7 +43,10 @@ public class FlaviusJosephe {
 		AnneauListeChainee<Integer> anneau = new AnneauListeChainee<>(list);
 		return anneau;
 	}
-	
+	/**
+	 * <h1>flush</h1>
+	 * <p>Méthode fluch qui permet d'afficher un anneau d'élement avec un pas donné</p>
+	 */
 	public void flush() {
 		// Liste à analyser
 		AnneauListeChainee<Integer> listFlush = createList();
@@ -91,30 +101,6 @@ public class FlaviusJosephe {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-//		ArrayList<String> arr = new ArrayList<>();
-//		arr.add("element1");
-//		arr.add("element3");
-//		arr.add("element2");
-//		arr.add("element5");
-//		arr.add("element6");
-//		arr.add("element4");
-//
-//		System.out.println(arr);
-//
-//		Collections.sort(arr, new Comparator<String>() {
-//
-//			@Override
-//			public int compare(String o1, String o2) {
-//
-//				return o1.toString().compareTo(o2.toString());
-//			}
-//		});
-//
-//		System.out.println(arr);
-//
-//		System.out.println(5 / 2);
-//		// souha 2
 
 		FlaviusJosephe fJ1 = new FlaviusJosephe(8, 3);
 		fJ1.flush();
