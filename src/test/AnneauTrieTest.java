@@ -72,10 +72,17 @@ public class AnneauTrieTest {
 	 */
 	@Test
 	public void testInsere() {
-		anneau1.insere("element1");
-		assertEquals(1, anneau1.taille());
-		anneau1.insere("element2");
-		assertEquals(2, anneau1.taille());
+		AnneauTrie<String> anneau = new AnneauTrie<>(new Comparator<String>() {
+
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.toString().compareTo(o2.toString());
+			}
+		});
+		anneau.insere("element1");
+		assertEquals(1, anneau.taille());
+		anneau.insere("element2");
+		assertEquals(2, anneau.taille());
 	}
 
 	/**

@@ -1,5 +1,7 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -34,9 +36,9 @@ public class FeuTricoloreTest {
 	 */
 	@Test
 	public void testChange() {
-		assert fT.change() == Couleur.ORANGE;
-		assert fT.change() == Couleur.ROUGE;
-		assert fT.change() == Couleur.VERT;
-		assert fT.change() == Couleur.ORANGE;
+		assertEquals(fT.change(), Couleur.ORANGE);
+		assertEquals(fT.change(), Couleur.ROUGE);
+		assertEquals(fT.change(), Couleur.VERT);
+		assertEquals(fT.change(), Couleur.ORANGE);
 	}
 }

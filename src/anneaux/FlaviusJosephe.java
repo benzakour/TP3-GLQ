@@ -115,19 +115,4 @@ public class FlaviusJosephe {
 		}
 		System.out.println(flushList);
 	}
-
-	/**
-	 * <h1>main</h1>
-	 * <p>
-	 * </p>
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args) {//TODO
-
-		FlaviusJosephe fJ1 = new FlaviusJosephe(8, 3);
-		fJ1.flush();
-		FlaviusJosephe fJ2 = new FlaviusJosephe(10, 2);
-		fJ2.flush();
-	}
 }
