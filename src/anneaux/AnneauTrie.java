@@ -12,7 +12,7 @@ import java.util.Comparator;
  *
  * @author Anthony Gumb et Audrey Mommeja.
  *
- * @param <E>
+ * @param <E> le type générique.
  */
 public class AnneauTrie<E> extends AbstractAnneauListeChainee<E> {
 

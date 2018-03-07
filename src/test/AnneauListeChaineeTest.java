@@ -167,7 +167,7 @@ public class AnneauListeChaineeTest {
 	}
 
 	/**
-	 * Teste la methode de {@link anneaux.AnneauListeChainee#coupeEnDeux())}.
+	 * Teste la methode de {@link anneaux.AnneauListeChainee#coupeEnDeux()}.
 	 */
 	@Test
 	public void testCoupeEnDeux() {

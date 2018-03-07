@@ -20,6 +20,10 @@ public class MaDocDeClasse extends Doclet {
 	 * La mÃ©thode start() est appelÃ©e automatiquement par l'outil javadoc.
 	 * Exemple d'utilisation de la classe : javadoc -classpath -doclet
 	 * madoclet.MaDocDeClasse
+	 * 
+	 * @param root
+	 *            la rootDoc.
+	 * @return true si tout s'est bien passé.
 	 */
 	public static boolean start(RootDoc root) {
 		ClassDoc[] classes = root.classes();
